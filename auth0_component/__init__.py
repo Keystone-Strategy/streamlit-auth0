@@ -24,8 +24,8 @@ from jose import jwt
 
 def getVerifiedSubFromToken(token, domain):
     domain = "https://"+domain
-    if not re.match(r".*\.auth0\.com$", domain):
-        print('domain should end with ".XX.auth0.com" (no trailing slash)')
+    if not domain.endswith('.auth0.com'):                        #Updated to avoid links before 2007 were not having region
+        print('domain should end with ".us.auth0.com" (no slash)')
         raise ValueError
     jsonurl = urlopen(domain+"/.well-known/jwks.json")
     jwks = json.loads(jsonurl.read())
