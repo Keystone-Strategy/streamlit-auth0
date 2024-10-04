@@ -1,4 +1,5 @@
 import os
+import re
 import streamlit.components.v1 as components
 
 _RELEASE = False
@@ -65,7 +66,7 @@ def login_button(clientId, domain,key=None, **kwargs):
         client_id per auth0 config on your Applications / Settings page
     
     domain: str
-        domain per auth0 config on your Applications / Settings page in the form dev-xxxx.us.auth0.com
+        domain per auth0 config on your Applications / Settings page in the form dev-xxxx.xx.auth0.com
     key: str or None
         An optional key that uniquely identifies this component. If this is
         None, and the component's arguments are changed, the component will
